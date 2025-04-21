@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,15 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				// Game hub specific colors
+				'game-purple': {
+					DEFAULT: '#8B5CF6',
+					dark: '#6E59A5',
+					light: '#D6BCFA'
+				},
+				'game-dark': '#1A1F2C',
+				'game-neutral': '#8E9196'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,25 +79,38 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				'card-hover': {
+					'0%': { transform: 'translateY(0)' },
+					'100%': { transform: 'translateY(-10px)' }
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						boxShadow: '0 0 5px rgba(139, 92, 246, 0.5)',
+						transform: 'scale(1)'
 					},
-					to: {
-						height: '0'
+					'50%': { 
+						boxShadow: '0 0 20px rgba(139, 92, 246, 0.8)',
+						transform: 'scale(1.05)'
 					}
+				},
+				'stealth-fade': {
+					'0%': { opacity: '1' },
+					'100%': { opacity: '0' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'card-hover': 'card-hover 0.3s ease-out forwards',
+				'pulse-glow': 'pulse-glow 2s infinite ease-in-out',
+				'stealth-fade': 'stealth-fade 0.3s ease-out forwards'
 			}
 		}
 	},
